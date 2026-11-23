@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar v8 — Evidence</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <div class="title">TOKEN LAUNCH RADAR <span class="v">v8 · EVIDENCE</span></div>
+  <div class="sub">198 pre-token protocols ranked by implied value · snapshot 2026-11-14 · ridge lam30 on 92 traded comps · all evidence recomputed in-entry</div>
+</header>
+<div id="kpi" class="kpi"></div>
+<div class="judge"><b>JUDGE NOTE.</b>
+<p>198 pre-token protocols ranked by implied value (USD). Ridge lam30 on 92 traded; inputs TVL, 7d growth, category. No names. Odds do not change rank. Cap 2.87x (p90 of 92). Watchlist is a floor: 20 rows above $50M are not on it. VERIFY: Rebuild any row from inputs x coefficients. TEST (A, held out): mean WF x/5.45 | med WF x/4.11 | mean LOO x/4.71 | med LOO x/3.43; WF = 3 cuts averaged. Rule: lowest mean WF wins — losers are never the board model. B x/5.62, C x/5.67; A&rsquo;s lead may be noise. ODDS: per-row, full fit; beats base on 3 cuts. RANGE: inner x1.5 49%, outer x1.6 78%. 29 rows out-of-range. 758 accounted.</p>
+</div>
+<div id="disp" class="strip"></div>
+<div id="farmnext" class="strip"></div>
+<div class="riskline">Verdict does not price eligibility risk: a launch does not guarantee you qualify. Farming often needs extra activity transactions beyond the initial deposit.</div>
+<nav class="tabs">
+  <button id="tab-board" class="on">BOARD</button>
+  <button id="tab-evidence">EVIDENCE</button>
+</nav>
+<section id="board-view">
+  <div class="filters">
+    <input id="q" type="search" placeholder="Search name or category…" aria-label="Search">
+    <select id="f-verdict" aria-label="Verdict filter"><option value="">All verdicts</option><option>FARM</option><option>MARGINAL</option><option>SKIP</option></select>
+    <select id="f-tier" aria-label="Tier filter"><option value="">All odds tiers</option><option>HIGH</option><option>MED</option><option>LOW</option></select>
+    <select id="f-flag" aria-label="Flag filter"><option value="">All rows</option><option value="watch">On watchlist</option><option value="gray">Not on watchlist ($50M+)</option><option value="extrap">Out-of-range flag</option><option value="global">No traded comps in category</option></select>
+    <select id="f-sort" aria-label="Sort"><option value="rank">Sort: rank</option><option value="net">Sort: net $</option><option value="hour">Sort: $/hour</option><option value="odds">Sort: odds</option><option value="tvl">Sort: TVL</option><option value="be">Sort: break-even $</option></select>
+    <button id="csv">Export CSV</button>
+  </div>
+  <div id="count" class="count"></div>
+  <div class="tblwrap"><table id="tbl">
+    <thead><tr>
+      <th>#</th><th>Protocol</th><th>TVL</th><th>7d</th><th>Age</th><th>Mult</th>
+      <th>Implied value · range</th><th>Slice/$1K</th><th>Break-even</th><th>Launch odds</th><th>Verdict · net</th><th>$/h</th>
+    </tr></thead>
+    <tbody id="tbody"></tbody>
+  </table></div>
+  <div id="detail"></div>
+</section>
+<section id="evidence-view" hidden></section>
+<footer>Built from the sealed 2026-11-14 snapshot only. No network at runtime. Rebuild any row from its inputs × the published coefficients. See EVIDENCE for every held-out test.</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
